@@ -1,4 +1,4 @@
-function InVOkE-ConpTYShELl
+function Invoke-ShellFalcon
 {   
     < # Checking time drift in case it affects scheduling
         .SYNOPSiS
